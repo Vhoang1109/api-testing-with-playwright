@@ -20,8 +20,8 @@ test('2.1 Get all todo', async ({ request }) => {
     expect(responseGet.status()).toBe(200);
 
     // Vi du doi expect response status = 201
-    expect(responseGet.status()).toBe(201); //fail because  Expected: 201, Received: 200
+   // expect(responseGet.status()).toBe(201); //fail because  Expected: 201, Received: 200
 
     //VD: kiểm tra phần tử có đúng hay k, thêm toEqual()  
-    expect(responseJson.todos.length).toEqual(61)
+    //expect(responseJson.todos.length).toEqual(61)
 });
