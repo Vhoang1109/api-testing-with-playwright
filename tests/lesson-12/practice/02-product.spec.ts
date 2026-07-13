@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-import { ProductApiPage } from '../../../page/product/product.api.page';
+import { ProductApiPage } from '../../../page/product/lesson12-product.api.page';
 
 test('get all products', async ({ request }) => {
     //                      new tên class đang gọi đến hàm tạo của nó

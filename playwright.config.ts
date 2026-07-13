@@ -42,11 +42,22 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: 'upnext global setup',
+      testMatch: /global\.setup\.ts/,
+      teardown: 'upnext global teardown',
+    },
+
+    {
+      name: 'upnext global teardown',
+      testMatch: /global\.teardown\.ts/
+    },
+
+    {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-
       },
+      dependencies: ['upnext global setup']
 
     },
 
