@@ -13,6 +13,7 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
+
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -22,15 +23,19 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  //cấu hình cách Playwright hiển thị kết quả test
+  reporter: [
+    ["list"],
+    ["html", { open: "never" }],
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
- 
-   testIgnore: [
-        "**/lesson-12/other-style/demo-03.spec.ts",
-        "**/lesson-12/practice/01-simple-get.spec.ts",
-        "**/lesson-14/01-visual-comparisions.spec.ts",
-        "**/lesson-14/02-screenshot-mask.spec.ts",
-    ],
+
+  testIgnore: [
+    "**/lesson-12/other-style/demo-03.spec.ts",
+    "**/lesson-12/practice/01-simple-get.spec.ts",
+    "**/lesson-14/01-visual-comparisions.spec.ts",
+    "**/lesson-14/02-screenshot-mask.spec.ts",
+  ],
 
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
@@ -38,7 +43,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
-    // headless: false,
+    headless: false,
     video: `on`,
     permissions: ['notifications', 'microphone', 'geolocation']
 
