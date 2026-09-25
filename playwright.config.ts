@@ -43,6 +43,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
+    //local mở trình duyệt nhưng CI chạy headless
     headless: !!process.env.CI,
     video: `on`,
     permissions: ['notifications', 'microphone', 'geolocation']
